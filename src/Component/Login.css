@@ -1,0 +1,42 @@
+@media (min-width: 1025px) {
+    .h-custom-2 {
+      height: 100%;
+      }
+    }
+.diVstyle1{
+    width: 50%;
+    height: 85vh;
+    background-color: antiquewhite;
+    transition: all 0.4s ease-in-out;
+    border-radius: 10px;
+}
+.MianDiv{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+.diVstyle1 img{
+    height: 85vh;
+}
+.diVstyle1:hover{
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.6);
+}
+.loginbtn{
+    background-color: rgb(45, 45, 205);
+    color: white;
+    margin-left: 50px;
+    width: 100px;
+    border-radius: 5%;
+    border: 0cap;
+}
+.registerbtn{
+    background-color: rgb(45, 45, 205);
+    color: white;
+    margin-left: 50px;
+    width: 125px;
+    border-radius: 5%;
+    border: 0cap;
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+.divflex1{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    justify-content: center;
+    background-color:rgb(231, 239, 193);
+    margin-top: 20px;
+}

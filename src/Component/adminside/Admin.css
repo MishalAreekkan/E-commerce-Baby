@@ -1,0 +1,15 @@
+.admindiv{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(228, 228, 103);
+    margin-left: 400px;
+}
+.btn1{
+    width: 160px;
+    height: 40px;
+    /* margin-left: -20px; */
+    margin-top: 170px;
+
+}
