@@ -1,33 +1,51 @@
 import React, { useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Userside } from '../App';
+import { useState } from 'react';
 import loginpic1 from "../assets/loginpic1.jpg"
+import { FaUserNinja } from "react-icons/fa";
 import "./Login.css"
 import {
   MDBContainer,
   MDBRow,
   MDBCol,
   MDBIcon,
-  MDBInput
+  MDBInput,
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
 } from 'mdb-react-ui-kit';
-
 function Login() {
+  const [basicModal, setBasicModal] = useState(false);
+
   const nav = useNavigate()
-  const { data, setData,setUser} = useContext(Userside)
+  const { data, setData, setUser, user } = useContext(Userside)
   const inputref = useRef(null)
+  const toggleOpen = () => setBasicModal(!basicModal);
   const submit = (e) => {
     e.preventDefault()
     let logemail = inputref.current.logemail.value
     let logpassword = inputref.current.logpassword.value
-      let userData= data.find((item)=>item.email==logemail)
-      if (userData && userData.password==logpassword){
-        setUser(userData)
-        nav('/')
-      }else{
-        setUser(null)
-        alert('invalid user')
-      }
-    
+    let userData = data.find((item) => item.email == logemail)
+    if (logemail == "admin@gmail.com" && logpassword == "aa") {
+      // toggleOpen()
+      nav("/adminuser")
+
+    }
+    else if (userData && userData.password == logpassword) {
+      setUser(userData)
+      nav('/')
+      console.log(user);
+    } else {
+      setUser(null)
+      alert('invalid user')
+    }
+
   }
   return (
     <>
@@ -58,6 +76,25 @@ function Login() {
               </MDBCol>
             </MDBRow>
           </MDBContainer>
+          {/* <div className='admindiv'>
+            <MDBModal open={basicModal} setOpen={setBasicModal} tabIndex='-1'>
+              <MDBModalDialog>
+                <MDBModalContent>
+                  <MDBModalHeader>
+                    <MDBModalTitle><FaUserNinja /></MDBModalTitle>
+                    <MDBBtn className='btn-close' color='none' onClick={toggleOpen}></MDBBtn>
+                  </MDBModalHeader>
+                  <MDBModalBody>Welcome to Admin section</MDBModalBody>
+
+                  <MDBModalFooter>
+                    <button onClick={toggleOpen}>Close</button>
+                    <button onClick={() => nav("/adminuser")}>User Section</button>
+                    <button onClick={() => nav("/adminproduct")} >Product Section</button>
+                  </MDBModalFooter>
+                </MDBModalContent>
+              </MDBModalDialog>
+            </MDBModal>
+          </div> */}
         </div>
       </div>
     </>

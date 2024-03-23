@@ -11,8 +11,11 @@ import { createContext, useState } from 'react';
 import Show from './Component/Show';
 import Addtocart from './Component/Addtocart';
 import { MockProducts } from './DummyData/DummyProducts';
-import Admin from './Component/adminside/Admin';
-import Adminlogin from './Component/adminside/Adminlogin';
+import Adminuser from './Component/adminside/Adminuser';
+import Adminproduct from './Component/adminside/Adminproduct';
+import Payment from './Component/Payment';
+
+
 
 
 export const Userside=createContext()
@@ -23,6 +26,7 @@ function App() {
   const [search,setSearch] = useState('')
   const [products,setProducts] = useState(MockProducts)
   const [render,setRender] = useState(false)
+
   
   return (
     <div>
@@ -37,11 +41,13 @@ function App() {
         <Route path='/contact' element={<Contactus />} />
         <Route path='/:title/:id' element={<Show/>} />
         <Route path='/cart' element={<Addtocart/>} />
-        <Route path='/admin' element={<Admin/>} />
-        <Route path='/adminlogin' element={<Adminlogin/>} />
+        <Route path='/adminuser' element={< Adminuser/>} />
+        <Route path='/adminproduct' element={<Adminproduct />} />
+        <Route path='/payment' element={<Payment/>} />
       </Routes>
       </Userside.Provider>
       <Footer/>
+ 
     </div>
   )
 }

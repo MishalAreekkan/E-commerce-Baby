@@ -4,6 +4,31 @@
     column-gap: 2rem;
     row-gap: 2rem;
     justify-content: center;
-    background-color:rgb(231, 239, 193);
+    background-color:#90a955;  
     margin-top: 20px;
 }
+   .product-card {
+    margin: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+  }
+  .filter-dropdown {
+    margin: 20px;
+    
+  }
+  .filter-dropdown .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .filter-dropdown .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  .filter-dropdown .dropdown-toggle::after {
+    border-top-color: #fff;
+  }

@@ -31,8 +31,6 @@ function Signup() {
       alert('Password is not matching!')
     }
   }
-  
-
   console.warn(data);
   return (
     <div className='maindiv'>

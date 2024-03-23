@@ -8,7 +8,6 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Userside } from '../App';
 
-
 function Shop() {
   const nav = useNavigate()
   const { title } = useParams()
@@ -16,9 +15,10 @@ function Shop() {
   const filtering = products.filter((x) => x.title == title)
   return (
     <div>
-      <div>
+
+      <div className='filter-dropdown'>
         <Dropdown as={ButtonGroup}>
-          <Button variant="success">Filter</Button>
+          <Button variant="success">Products by Category Filter</Button>
           <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
           <Dropdown.Menu>
             <Dropdown.Item onClick={() => nav(`/doll`)}>Doll</Dropdown.Item>
@@ -35,27 +35,27 @@ function Shop() {
           </Dropdown.Menu>
         </Dropdown>
       </div>
+  
       <div className='divflex1'>
         {(search ? search : title == "shop" ? products : filtering).map((item) => (
-          <div key={item.id}>
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={item.image} />
+          <div key={item.id} className='product-card'>
+            <Card style={{ width: '18rem', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+              <Card.Img variant="top" src={item.image}/>
               <Card.Body>
-                <Card.Title>{item.title}</Card.Title>
-                <Card.Text>
+                <Card.Title style={{backgroundColor:"#2f3e46",textAlign:"center",color:"white"}}>{item.title}</Card.Title>
+                <Card.Text style={{textAlign:"center"}}>
                   {item.description}
                 </Card.Text>
-                <Card.Text>
-                  {item.price}
+                <Card.Text style={{textAlign:"center"}}>
+                 Rs: {item.price}
                 </Card.Text>
-                <Button variant="primary" onClick={() => nav(`/${item.title}/${item.id}`)}>Show</Button>
+                <Button style={{marginLeft:"100px"}} variant="primary" onClick={() => nav(`/${item.title}/${item.id}`)}>Show</Button>
               </Card.Body>
             </Card>
           </div>
         ))
         }
       </div>
-      <button onClick={() => nav('/')}>home</button>
     </div>
   )
 }

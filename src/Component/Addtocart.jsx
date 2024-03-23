@@ -23,32 +23,31 @@ function Addtocart() {
   }
    
   return (
-    <div style={{display:'flex',justifyContent:'center'}}  >
+    <div style={{display:'flex',justifyContent:'center',margin:"30px"}}  >
       {user && user.cart.map((adding) => (
         <div key={adding.id}>
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={adding.image} />
             <Card.Body>
-              <Card.Title>{adding.title}</Card.Title>
+              <Card.Title  style={{backgroundColor:"#2f3e46",textAlign:"center",color:"white"}}>{adding.title}</Card.Title>
               <Card.Text>
                 {adding.description}
               </Card.Text>
-              <Card.Text>
-                {adding.price * adding.quantity}
+              <Card.Text style={{textAlign:"center"}}>
+               Rs {adding.price * adding.quantity}
               </Card.Text>
-              <Card.Text>
+              <Card.Text style={{textAlign:"center"}}>
                 <button onClick={() => incre(adding)}>+</button>
                 Quantity:{adding.quantity}
                 <button onClick={() => decre(adding)} >-</button>
               </Card.Text>
               <Button variant="primary" onClick={() => nav("/")}>Buy Now</Button>
-              <Button variant="primary" className='ms-3' onClick={() => remove(adding.id)}>Remove</Button>
+              <Button variant="primary" className='ms-4' onClick={() => remove(adding.id)}>Remove</Button>
             </Card.Body>
           </Card>
         </div>
       ))}
-          <span> {user&&<>total :{user.cart.reduce((acc,curr)=>acc += curr.price*curr.quantity,0)}</>}
-          </span>
+       <br /> <h3> Total Price = Rs:{user&&<>{user.cart.reduce((acc,curr)=>acc += curr.price*curr.quantity,0)}</>}</h3>
     </div>
   )
 }
